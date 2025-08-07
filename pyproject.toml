@@ -1,0 +1,85 @@
+[build-system]
+requires = ["setuptools>=45", "wheel", "setuptools_scm[toml]>=6.2"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "torch-installer"
+dynamic = ["version"]
+description = "An intelligent, autonomous PyTorch installer that automatically detects your system, GPU, and CUDA configuration"
+readme = "README.md"
+license = "MIT"
+authors = [
+    {name = "coff33ninja", email = "your-email@example.com"}
+]
+maintainers = [
+    {name = "coff33ninja", email = "your-email@example.com"}
+]
+keywords = ["pytorch", "torch", "cuda", "gpu", "installer", "machine-learning", "deep-learning"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: System :: Installation/Setup",
+]
+requires-python = ">=3.7"
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=6.0",
+    "black>=21.0",
+    "flake8>=3.8",
+    "twine>=3.0",
+    "build>=0.7",
+]
+
+[project.scripts]
+torch-installer = "torch_installer.cli:main"
+pytorch-installer = "torch_installer.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/coff33ninja/torch-installer"
+Repository = "https://github.com/coff33ninja/torch-installer"
+Issues = "https://github.com/coff33ninja/torch-installer/issues"
+Documentation = "https://github.com/coff33ninja/torch-installer#readme"
+
+[tool.setuptools]
+packages = ["torch_installer"]
+
+[tool.setuptools.dynamic]
+version = {attr = "torch_installer.__version__"}
+
+[tool.black]
+line-length = 88
+target-version = ['py37']
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+  # directories
+  \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | build
+  | dist
+)/
+'''
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
