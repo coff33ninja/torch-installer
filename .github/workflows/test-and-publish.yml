@@ -18,7 +18,7 @@ jobs:
         exclude:
           # Python 3.7 is not available on macOS-latest (macOS 12+)
           - os: macos-latest
-            python-version: '3.7'
+            python-version: '3.11'
 
     steps:
     - uses: actions/checkout@v4

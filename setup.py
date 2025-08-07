@@ -19,7 +19,7 @@ def get_version():
     return "1.0.0"
 
 setup(
-    name="torch-installer",
+    name="torch-installer-coff33ninja",
     version=get_version(),
     author="coff33ninja",
     author_email="coff33ninja@gmail.com",  # Replace with your email

@@ -3,7 +3,7 @@ requires = ["setuptools>=45", "wheel", "setuptools_scm[toml]>=6.2"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "torch-installer"
+name = "torch-installer-coff33ninja"
 dynamic = ["version"]
 description = "An intelligent, autonomous PyTorch installer that automatically detects your system, GPU, and CUDA configuration"
 readme = "README.md"
