@@ -4,17 +4,21 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "torch-installer-coff33ninja"
-dynamic = ["version"]
+version = "1.0.2"
 description = "An intelligent, autonomous PyTorch installer that automatically detects your system, GPU, and CUDA configuration"
 readme = "README.md"
-license = "MIT"
-authors = [
-    {name = "coff33ninja", email = "your-email@example.com"}
+license = { text = "MIT" }
+authors = [{ name = "coff33ninja", email = "coff33ninja69@gmail.com" }]
+maintainers = [{ name = "coff33ninja", email = "coff33ninja69@gmail.com" }]
+keywords = [
+    "pytorch",
+    "torch",
+    "cuda",
+    "gpu",
+    "installer",
+    "machine-learning",
+    "deep-learning",
 ]
-maintainers = [
-    {name = "coff33ninja", email = "your-email@example.com"}
-]
-keywords = ["pytorch", "torch", "cuda", "gpu", "installer", "machine-learning", "deep-learning"]
 classifiers = [
     "Development Status :: 4 - Beta",
     "Intended Audience :: Developers",
@@ -36,13 +40,7 @@ requires-python = ">=3.7"
 dependencies = []
 
 [project.optional-dependencies]
-dev = [
-    "pytest>=6.0",
-    "black>=21.0",
-    "flake8>=3.8",
-    "twine>=3.0",
-    "build>=0.7",
-]
+dev = ["pytest>=6.0", "black>=21.0", "flake8>=3.8", "twine>=3.0", "build>=0.7"]
 
 [project.scripts]
 torch-installer = "torch_installer.cli:main"
@@ -57,8 +55,6 @@ Documentation = "https://github.com/coff33ninja/torch-installer#readme"
 [tool.setuptools]
 packages = ["torch_installer"]
 
-[tool.setuptools.dynamic]
-version = {attr = "torch_installer.__version__"}
 
 [tool.black]
 line-length = 88

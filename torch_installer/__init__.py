@@ -5,7 +5,7 @@ An intelligent, autonomous PyTorch installer that automatically detects your sys
 GPU, and CUDA configuration to install the optimal PyTorch setup for your hardware.
 """
 
-__version__ = "1.0.1"
+__version__ = "1.0.2"
 __author__ = "coff33ninja"
 __email__ = "your-email@example.com"
 __license__ = "MIT"
