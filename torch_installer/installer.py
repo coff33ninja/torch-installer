@@ -456,11 +456,12 @@ def get_gpu_upgrade_guidance(gpu_info, detected_cuda, auto_install=False):
     guidance = [f"💡 GPU ACCELERATION UPGRADE GUIDE ({gpu_model}):"]
     
     # Determine recommended CUDA version and add auto-install option
-    if any(old_gpu in gpu_model.upper() for old_gpu in ['GT 610', 'GT 620', 'GT 630', 'GT 710', 'GT 720', 'GT 730']):
-        recommended_cuda = "11.8"
+    if any(kepler_gpu in gpu_model.upper() for kepler_gpu in ['GT 610', 'GT 620', 'GT 630', 'GT 710', 'GT 720', 'GT 730']):
+        recommended_cuda = "11.3"  # Kepler generation - max CUDA 11.4, but 11.3 is most stable
         guidance.extend([
-            f"   ⚠️ Your {gpu_model} is an older GPU with limited CUDA support",
-            f"   💡 Recommended: CUDA {recommended_cuda} for optimal compatibility"
+            f"   ⚠️ Your {gpu_model} is a Kepler-generation GPU (2012-2014)",
+            f"   💡 Recommended: CUDA {recommended_cuda} for maximum compatibility",
+            f"   🔧 Note: CUDA 11.8+ may cause driver conflicts (exit code 46)"
         ])
     elif any(modern_gpu in gpu_model.upper() for modern_gpu in ['RTX', 'GTX 16', 'GTX 20', 'GTX 30', 'GTX 40']):
         recommended_cuda = "12.1"
@@ -564,9 +565,10 @@ def install_cuda_windows(target_version, gpu_info, dry_run=False):
     print(f"🔧 Attempting to install CUDA {target_version} for {gpu_model}")
     
     # Determine best CUDA version for the GPU
-    if any(old_gpu in gpu_model.upper() for old_gpu in ['GT 610', 'GT 620', 'GT 630', 'GT 710', 'GT 720', 'GT 730']):
-        recommended_version = "11.8"
-        print(f"💡 Recommending CUDA {recommended_version} for older GPU: {gpu_model}")
+    if any(kepler_gpu in gpu_model.upper() for kepler_gpu in ['GT 610', 'GT 620', 'GT 630', 'GT 710', 'GT 720', 'GT 730']):
+        recommended_version = "11.3"  # Kepler generation - avoid driver conflicts
+        print(f"💡 Recommending CUDA {recommended_version} for Kepler GPU: {gpu_model}")
+        print(f"⚠️ Note: Your {gpu_model} may have driver conflicts with CUDA 11.8+")
     else:
         recommended_version = "12.1"
         print(f"🚀 Recommending CUDA {recommended_version} for modern GPU: {gpu_model}")
