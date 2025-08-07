@@ -20,7 +20,7 @@ def get_version():
 
 setup(
     name="torch-installer-coff33ninja",
-    version="1.0.2",
+    version="1.0.3",
     author="coff33ninja",
     author_email="coff33ninja@gmail.com",  # Replace with your email
     description="An intelligent, autonomous PyTorch installer that automatically detects your system, GPU, and CUDA configuration",

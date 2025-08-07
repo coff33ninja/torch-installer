@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "torch-installer-coff33ninja"
-version = "1.0.2"
+version = "1.0.3"
 description = "An intelligent, autonomous PyTorch installer that automatically detects your system, GPU, and CUDA configuration"
 readme = "README.md"
 license = { text = "MIT" }

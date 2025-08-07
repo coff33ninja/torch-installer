@@ -13,6 +13,12 @@ An intelligent, autonomous PyTorch installer that automatically detects your sys
 - **🔍 Comprehensive Testing**: Post-install verification with tensor operations
 - **📊 Detailed Reporting**: Shows complete system and package information
 
+## ⚠️ GPU Compatibility Notice
+
+**Testing Status**: This installer has been primarily tested on GT 900 series and older GPUs, as well as GTX 10 series cards. While it should work with newer GPU generations (RTX 20/30/40 series), comprehensive testing across all NVIDIA GPU models is ongoing.
+
+If you encounter issues with newer GPUs, please report them via GitHub issues to help improve compatibility.
+
 ## �️ Installation
 
 Simply download the `torch_installer.py` script - no additional dependencies required beyond Python's standard library.
